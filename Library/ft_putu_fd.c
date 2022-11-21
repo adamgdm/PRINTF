@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putu_fd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agoujdam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 03:08:22 by agoujdam          #+#    #+#             */
-/*   Updated: 2022/10/27 11:48:23 by agoujdam         ###   ########.fr       */
+/*   Created: 2022/11/21 15:13:47 by agoujdam          #+#    #+#             */
+/*   Updated: 2022/11/21 15:13:47 by agoujdam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "Library.h"
 
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
+void	ft_putu_fd(unsigned int n, int fd)
+{		
+	if (n > 9)
+		{
+			ft_putu_fd(n / 10, fd);
+			ft_putu_fd(n % 10, fd);
+		}
+		else if (n < 10)
+		{
+			ft_putchar_fd(n + '0', fd);
+		}
 }
+

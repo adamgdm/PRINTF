@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_printp_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agoujdam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 03:08:22 by agoujdam          #+#    #+#             */
-/*   Updated: 2022/10/27 11:48:23 by agoujdam         ###   ########.fr       */
+/*   Created: 2022/11/21 15:10:17 by agoujdam          #+#    #+#             */
+/*   Updated: 2022/11/21 15:10:19 by agoujdam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "Library.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_printp_fd(void *c, int fd)
 {
-	write(fd, &c, 1);
+	ft_putstr_fd("0x", fd);
+	ft_puthex_fd((unsigned long int)c, fd, 'x');
 }

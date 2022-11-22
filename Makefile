@@ -1,9 +1,8 @@
 SRC = Library/ft_putchar_fd.c Library/ft_putnbr_fd.c Library/ft_putu_fd.c Library/ft_printp_fd.c Library/ft_puthex_fd.c Library/ft_putstr_fd.c ft_printf.c
 
+LIB = ft_printf.h
 
-LIB = ft_printf.h Library/Library.h
-
-ADF = ft_printf.h.gch Library/library.h.gch
+ADF = ft_printf.h.gch
 
 CFLAGS = -Wall -Wextra -Werror
 

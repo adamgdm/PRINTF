@@ -6,15 +6,15 @@
 /*   By: agoujdam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:14:38 by agoujdam          #+#    #+#             */
-/*   Updated: 2022/11/22 14:14:48 by agoujdam         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:04:40 by agoujdam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Library.h"
+#include "../ft_printf.h"
 
 int	ft_putnbr_fd(int n, int fd)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (n == -2147483648)
@@ -35,9 +35,7 @@ int	ft_putnbr_fd(int n, int fd)
 			count += ft_putnbr_fd(n % 10, fd);
 		}
 		else if (n < 10)
-		{
 			count += ft_putchar_fd(n + '0', fd);
-		}
 	}
 	return (count);
 }

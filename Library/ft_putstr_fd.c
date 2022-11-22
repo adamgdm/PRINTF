@@ -6,11 +6,11 @@
 /*   By: agoujdam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:14:57 by agoujdam          #+#    #+#             */
-/*   Updated: 2022/11/22 14:16:32 by agoujdam         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:05:00 by agoujdam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Library.h"
+#include "../ft_printf.h"
 
 int	ft_putstr_fd(char *s, int fd)
 {

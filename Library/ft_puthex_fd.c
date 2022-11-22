@@ -6,15 +6,15 @@
 /*   By: agoujdam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:41:39 by agoujdam          #+#    #+#             */
-/*   Updated: 2022/11/22 14:56:04 by agoujdam         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:06:10 by agoujdam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Library.h"
+#include "../ft_printf.h"
 
 int	ft_puthex_fd(unsigned long int n, int fd, char c)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (n >= 16)
@@ -24,10 +24,10 @@ int	ft_puthex_fd(unsigned long int n, int fd, char c)
 		return (count);
 	}
 	else if (n < 16 && n >= 10
-			&& (c >= 65 && c <= 90))
+		&& (c >= 65 && c <= 90))
 		count += ft_putchar_fd(n + 'A' - 10, fd);
 	else if (n < 16 && n >= 10
-			&& (c >= 97 && c <= 122))
+		&& (c >= 97 && c <= 122))
 		count += ft_putchar_fd(n + 'a' - 10, fd);
 	else if (n < 10)
 		count += ft_putchar_fd(n + '0', fd);

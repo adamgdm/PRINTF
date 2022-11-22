@@ -6,37 +6,30 @@
 /*   By: agoujdam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:41:39 by agoujdam          #+#    #+#             */
-/*   Updated: 2022/11/21 15:52:13 by agoujdam         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:56:04 by agoujdam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Library.h"
 
-void	ft_puthex_fd(unsigned long int n, int fd, char c)
+int	ft_puthex_fd(unsigned long int n, int fd, char c)
 {
-		if (n < 0)
-		{
-			ft_putchar_fd('-', fd);
-			ft_puthex_fd(-n, fd, c);
-		}
-		else if (n >= 16)
-		{
-			ft_puthex_fd(n / 16, fd, c);
-			ft_puthex_fd(n % 16, fd, c);
-			return ;
-		}
-		else if (n < 16 && n >= 10
-				&& (c >= 65 && c <= 90))
-			ft_putchar_fd(n + 'A' - 10, fd);
-		else if (n < 16 && n >= 10
-				&& (c >= 97 && c <= 122))
-			ft_putchar_fd(n + 'a' - 10, fd);
-		else if (n < 10)
-			ft_putchar_fd(n + '0', fd);
-}
+	int count;
 
-int main()
-{
-	ft_puthex_fd(454564, 1, 'x');
-
+	count = 0;
+	if (n >= 16)
+	{
+		count += ft_puthex_fd(n / 16, fd, c);
+		count += ft_puthex_fd(n % 16, fd, c);
+		return (count);
+	}
+	else if (n < 16 && n >= 10
+			&& (c >= 65 && c <= 90))
+		count += ft_putchar_fd(n + 'A' - 10, fd);
+	else if (n < 16 && n >= 10
+			&& (c >= 97 && c <= 122))
+		count += ft_putchar_fd(n + 'a' - 10, fd);
+	else if (n < 10)
+		count += ft_putchar_fd(n + '0', fd);
+	return (count);
 }

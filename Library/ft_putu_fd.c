@@ -6,22 +6,26 @@
 /*   By: agoujdam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:13:47 by agoujdam          #+#    #+#             */
-/*   Updated: 2022/11/21 15:13:47 by agoujdam         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:16:21 by agoujdam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Library.h"
 
-void	ft_putu_fd(unsigned int n, int fd)
+int	ft_putu_fd(unsigned int n, int fd)
 {		
+	int count;
+
+	count = 0;
 	if (n > 9)
 		{
-			ft_putu_fd(n / 10, fd);
-			ft_putu_fd(n % 10, fd);
+			count += ft_putu_fd(n / 10, fd);
+			count += ft_putu_fd(n % 10, fd);
 		}
 		else if (n < 10)
 		{
-			ft_putchar_fd(n + '0', fd);
+			count += ft_putchar_fd(n + '0', fd);
 		}
+	return (count);
 }
 

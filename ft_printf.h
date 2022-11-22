@@ -6,13 +6,16 @@
 /*   By: agoujdam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:26:24 by agoujdam          #+#    #+#             */
-/*   Updated: 2022/11/21 15:19:31 by agoujdam         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:45:45 by agoujdam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBB
 #define LIBB
 
-void	ft_putu_fd(unsigned int n, int fd)
+#include "Library/Library.h"
+#include <stdarg.h>
+
+int ft_printf(const char *s, ...);
 
 #endif

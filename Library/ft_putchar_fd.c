@@ -6,13 +6,14 @@
 /*   By: agoujdam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:10:27 by agoujdam          #+#    #+#             */
-/*   Updated: 2022/11/21 15:10:28 by agoujdam         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:11:40 by agoujdam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Library.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
+	return (1);
 }

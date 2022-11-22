@@ -1,12 +1,13 @@
 SRC = Library/ft_putchar_fd.c Library/ft_putnbr_fd.c Library/ft_putu_fd.c Library/ft_printp_fd.c Library/ft_puthex_fd.c Library/ft_putstr_fd.c ft_printf.c
 
-LIB = lib.h Library/Library.h
 
-ADF = Lib.h.gch Library/library.h.gch
+LIB = ft_printf.h Library/Library.h
+
+ADF = ft_printf.h.gch Library/library.h.gch
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJ = $(SRC:.c=.o)
+OBJ = *.o
 
 CC = cc
 
@@ -23,13 +24,13 @@ $(NAME) : $(SRC)
 clean :
 	@echo "Deleting object files"
 	@rm -rf *.o $(ADF)
-	@echo "Deletion of object files: SUCCESSFUL
+	@echo "Deletion of object files: SUCCESSFUL"
 
-fclean:
+fclean :
 	@echo "Deleting Library and object files"
-	@rm -rf *.o $(ADF) library.a
+	@rm -rf *.o $(ADF) $(NAME)
 	@echo "Deletion of library and object files: SUCCESSFUL"
 
-re: fclean all
+re : fclean all
 
 .PHONY : all clean fclean re bonus

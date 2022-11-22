@@ -1,21 +1,27 @@
-#include "Library/library.h"
+#include "ft_printf.h"
 
-static int ft_do_it(const char c, void *p, fd)
+int ft_do_it(const char c, void *p, int fd)
 {
 	if (c == 'c')
-		ft_putchar_fd((char)p, fd);
+		return(ft_putchar_fd((char)p, fd));
 	else if (c == 's')
-		ft_putstr_fd((const char)p, fd);
+	{
+		if (p == NULL)
+			return(ft_putstr_fd("(null)", fd));
+		return(ft_putstr_fd((char *)p, fd));
+	}
 	else if (c == 'p')
-		ft_printp_fd(p, fd);
+		return(ft_printp_fd(p, fd));
 	else if (c == 'd' || c == 'i')
-		ft_putnbr_fd((int)p, fd);
+		return(ft_putnbr_fd((int)p, fd));
 	else if (c == 'u')
-		ft_putu_fd((unsigned int)p, fd);
+		return(ft_putu_fd((unsigned int)p, fd));
 	else if (c == 'x' || c == 'X')
-		ft_puthex_fd((int)p, c, fd);
+		return(ft_puthex_fd((unsigned int)p, fd, c));
 	else if (c == '%')
-		ft_putchar_fd('%', fd);
+		return(ft_putchar_fd('%', fd));
+	else 
+		return (0);
 }
 
 int ft_printf(const char *s, ...)
@@ -23,22 +29,27 @@ int ft_printf(const char *s, ...)
 	va_list string;
 	int	i;
 	void *p;
+	int count;
 
 	i = 0;
+	count = 0;
 	va_start(string, s);
 	while (s[i])
 	{
 		while (s[i] && s[i] != '%')
 		{
-			ft_putchar_fd(str[i++], fd);
+			count += ft_putchar_fd(s[i++], 1);
 		}
-		if (s[i] == '%')
+		if (s[i++] == '%')
 		{	
+			if (!(s[i] == '%'))
+				p = va_arg(string, void *);
+			count += ft_do_it(s[i], p, 1);
 			i++;
-			p = va_arg(string, void *, fd)
-			ft_do_it(s[i], p);
 		}
 		else
 			break ;
 	}
+	va_end(string);
+	return (count);
 }
